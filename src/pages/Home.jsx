@@ -1,5 +1,6 @@
-export default function Home() {
+import { login } from "../infra/usuarios";
 
+export default function Home() {
     return (
         <div>
             <h2>Sistema de Compras</h2>
