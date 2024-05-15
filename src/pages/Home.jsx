@@ -1,5 +1,3 @@
-import { login } from "../infra/usuarios";
-
 export default function Home() {
     return (
         <div>

@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from '../infra/firebase'
 
 
@@ -10,7 +10,7 @@ export async function logarUsuario(email, senha) {
     await signInWithEmailAndPassword(auth, email, senha)
     .then((userCredencial) => {
         console.log(userCredencial);
-        retorno.id = userCredencial.user.id;
+        retorno.id = userCredencial.user.uid;
         retorno.email = email;
         retorno.senha = senha;
     })
@@ -19,4 +19,9 @@ export async function logarUsuario(email, senha) {
         retorno.erro = "Login Inválido";
     })
     return retorno;
+}
+
+export async function deslogarUsuario() {
+    await signOut(auth);
+    return {id: "", email: "", senha: ""};
 }

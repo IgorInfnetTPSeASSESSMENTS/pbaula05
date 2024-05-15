@@ -6,12 +6,13 @@ export default function Login({usuario, setUsuario}) {
         const email = document.getElementById("email").value;
         const senha = document.getElementById("senha").value;
         
-        let usuario = await logarUsuario(email, senha);
+        let user = await logarUsuario(email, senha);
 
-        if(usuario.id) {
-            setUsuario(usuario);
+        if(user.id) {
+            alert("Usuário logado com sucesso!!")
+            setUsuario(user);
         } else {
-            alert(usuario.erro)
+            alert(user.erro)
         }
     }
 
